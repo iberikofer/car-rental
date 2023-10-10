@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a:active, /* активная/посещенная ссылка */
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+}

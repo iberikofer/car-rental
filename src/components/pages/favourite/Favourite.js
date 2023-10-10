@@ -1,0 +1,33 @@
+import React, { useState, useEffect } from 'react';
+import { FavouriteList } from 'components/component/favouriteList/FavouriteList';
+import { Decoration, Title } from './Favourite.styled';
+export default function Favourite() {
+	const [favouriteList, setFavouriteList] = useState([]);
+	useEffect(() => {
+		const getFromStorage = JSON.parse(localStorage.getItem('favourite'));
+		if (getFromStorage) {
+			setFavouriteList(getFromStorage);
+		}
+	}, []);
+	return (
+		<Decoration>
+			{favouriteList[0] ? (
+				<div style={{ maxWidth: '1184px', margin: '0 auto' }}>
+					<Title style={{ textAlign: 'center', margin: 0 }}>
+						Your list of favorite cars:
+					</Title>
+					<FavouriteList
+						favouriteList={favouriteList}
+						setFavouriteList={setFavouriteList}
+					></FavouriteList>
+				</div>
+			) : (
+				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
+					<h1 style={{ margin: 0 }}>
+						Your list of favorite cars is empty
+					</h1>
+				</div>
+			)}
+		</Decoration>
+	);
+}
