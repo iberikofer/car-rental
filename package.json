@@ -1,8 +1,8 @@
 {
-	"name": "car-shop-react-node",
+	"name": "car-rent-react-node",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://iberikofer.github.io/car-shop-react-node/",
+	"homepage": "https://iberikofer.github.io/car-rent-react-node/",
 	"dependencies": {
 		"@emotion/styled": "^11.11.0",
 		"@testing-library/jest-dom": "^5.16.3",
