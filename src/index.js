@@ -5,7 +5,7 @@ import { App } from 'components/App';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<BrowserRouter basename="/car-shop-react-node">
+	<BrowserRouter basename="/car-rent-react-node">
 		<App />
 	</BrowserRouter>
 );
