@@ -1,3 +1,6 @@
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import {
   CardImg,
   Card,
@@ -13,111 +16,138 @@ import {
   RentalCarBtn,
 } from './ModalCard.styled';
 import closeBtn from '../../public/x.svg';
-import ReactDOM from 'react-dom';
+import auto from '../../public/error-auto.jpg';
 
-export function ModalCard({ selectedCar, setIsModalOpen }) {
-  const addressArray = selectedCar.address.split(', ');
-  const conditionsArray = selectedCar.rentalConditions.split('\n');
+export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
+  const handleClose = React.useCallback(() => {
+    if (onClose) {
+      onClose();
+    } else {
+      setIsModalOpen(false);
+    }
+  }, [onClose, setIsModalOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = e => {
+      if (e.key === 'Escape') {
+        handleClose();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [handleClose]);
+
+
+  if (!selectedCar) return null;
+
+  const addressArray = selectedCar.address ? selectedCar.address.split(', ') : [];
+  const conditionsArray = selectedCar.rentalConditions ? selectedCar.rentalConditions.split('\n') : [];
+  const firstCondition = conditionsArray[0] || '';
+  const hasMinAge = firstCondition.toLowerCase().includes('age') && firstCondition.length > 2;
+
+  const modalRoot = document.querySelector('#modal-card') || document.body;
 
   return ReactDOM.createPortal(
     <>
-      <ModalBackdrop
-        onClick={() => {
-          setIsModalOpen();
-        }}
-      ></ModalBackdrop>
+      <ModalBackdrop onClick={handleClose} />
       <Modal>
-        <>
-          <Card key={selectedCar.id}>
-            <div>
-              <div style={{ display: 'block' }}>
-                <CardImg src={selectedCar.img}></CardImg>
-                <Decoration>
-                  <p>
-                    {selectedCar.make} <CarModel>{selectedCar.model}</CarModel>,{' '}
-                    {selectedCar.year}
-                  </p>
-                </Decoration>
-                <DescriptionPart>
-                  {addressArray[1]} | {addressArray[2]} | Id: {selectedCar.id} |{' '}
-                  Year: {selectedCar.year} | Type: {selectedCar.type} | Fuel
-                  Consumption {selectedCar.fuelConsumption} | Engine Size:{' '}
-                  {selectedCar.engineSize}
-                </DescriptionPart>
-                <p
-                  style={{
-                    paddingTop: '14px',
-                  }}
-                >
-                  {selectedCar.description}
-                </p>
-                <p
-                  style={{
-                    paddingTop: '24px',
-                  }}
-                >
-                  Accessories and functionalities:
-                </p>
-                <DescriptionPart>
-                  |{' '}
-                  {selectedCar.accessories.map(accessor => (
-                    <span key={accessor}>{accessor} | </span>
-                  ))}
-                  <br></br>|{' '}
-                  {selectedCar.functionalities.map(accessor => (
-                    <span key={accessor}>{accessor} | </span>
-                  ))}
-                </DescriptionPart>
-                <p
-                  style={{
-                    paddingTop: '24px',
-                  }}
-                >
-                  Rental Conditions:
-                </p>
-                <ConditionsList>
-                  <Condition>
-                    {conditionsArray[0].slice(0, conditionsArray[0].length - 2)}
-                    <BlueColor>
-                      {' '}
-                      {conditionsArray[0].slice(
-                        conditionsArray[0].length - 2,
-                        conditionsArray[0].length
-                      )}
-                    </BlueColor>
-                  </Condition>
-                  {conditionsArray.slice(1).map(condition => (
-                    <Condition key={condition}>{condition}</Condition>
-                  ))}
+        <Card key={selectedCar.id}>
+          <div style={{ display: 'block' }}>
+            <CardImg
+              src={selectedCar.img || auto}
+              alt={`${selectedCar.make} ${selectedCar.model}`}
+              onError={e => {
+                e.target.src = auto;
+                e.preventDefault();
+              }}
+            />
+            <Decoration>
+              <p>
+                {selectedCar.make} <CarModel>{selectedCar.model}</CarModel>,{' '}
+                {selectedCar.year}
+              </p>
+            </Decoration>
+            <DescriptionPart>
+              {addressArray[1] || ''} | {addressArray[2] || ''} | Id: {selectedCar.id} |{' '}
+              Year: {selectedCar.year} | Type: {selectedCar.type} | Fuel
+              Consumption: {selectedCar.fuelConsumption} | Engine Size:{' '}
+              {selectedCar.engineSize}
+            </DescriptionPart>
+            <p style={{ paddingTop: '14px', fontSize: '14px', lineHeight: '1.5', color: '#121417' }}>
+              {selectedCar.description}
+            </p>
+            <p style={{ paddingTop: '20px', fontSize: '14px', fontWeight: 600, color: '#121417' }}>
+              Accessories and functionalities:
+            </p>
+            <DescriptionPart>
+              {(selectedCar.accessories || []).map(accessor => (
+                <span key={accessor}>{accessor} | </span>
+              ))}
+              <br />
+              {(selectedCar.functionalities || []).map(func => (
+                <span key={func}>{func} | </span>
+              ))}
+            </DescriptionPart>
+            <p style={{ paddingTop: '20px', fontSize: '14px', fontWeight: 600, color: '#121417' }}>
+              Rental Conditions:
+            </p>
+            <ConditionsList>
+              {hasMinAge ? (
+                <Condition>
+                  {firstCondition.slice(0, firstCondition.length - 2)}
+                  <BlueColor>
+                    {firstCondition.slice(firstCondition.length - 2)}
+                  </BlueColor>
+                </Condition>
+              ) : firstCondition ? (
+                <Condition>{firstCondition}</Condition>
+              ) : null}
+              {conditionsArray.slice(1).map(condition => (
+                <Condition key={condition}>{condition}</Condition>
+              ))}
 
-                  <Condition>
-                    Mileage:
-                    <BlueColor>
-                      {' '}
-                      {selectedCar.mileage.toLocaleString('en-US')}
-                    </BlueColor>
-                  </Condition>
-                  <Condition>
-                    <BlueColor>{selectedCar.rentalPrice}</BlueColor>
-                  </Condition>
-                </ConditionsList>
+              {selectedCar.mileage !== undefined && (
+                <Condition>
+                  Mileage:{' '}
+                  <BlueColor>
+                    {typeof selectedCar.mileage === 'number'
+                      ? selectedCar.mileage.toLocaleString('en-US')
+                      : selectedCar.mileage}
+                  </BlueColor>
+                </Condition>
+              )}
+              {selectedCar.rentalPrice && (
+                <Condition>
+                  Price: <BlueColor>{selectedCar.rentalPrice}</BlueColor>
+                </Condition>
+              )}
+            </ConditionsList>
 
-                <RentalCarBtn href="tel:+380730000000">Rental car</RentalCarBtn>
-              </div>
-            </div>
-          </Card>
-        </>
+            <RentalCarBtn href="tel:+380730000000">Rental car</RentalCarBtn>
+          </div>
+        </Card>
         <CloseBtn
-          onClick={() => {
-            setIsModalOpen();
-          }}
+          onClick={handleClose}
           width="18"
           height="18"
           src={closeBtn}
-          alt="filled favourite icons"
+          alt="close modal"
         />
       </Modal>
     </>,
-    document.querySelector('#modal-card')
+    modalRoot
   );
 }
+
+ModalCard.propTypes = {
+  selectedCar: PropTypes.object,
+  setIsModalOpen: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
+};
+

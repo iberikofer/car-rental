@@ -8,29 +8,28 @@ import {
 	Features,
 	Buttons,
 } from './Home.styled';
+
 export default function Home() {
 	return (
-		<Decoration style={{}}>
+		<Decoration>
 			<Container>
 				<TitleDecoration>
-					<Title>
-						Welcome to our car rent service!
-					</Title>
+					<Title>Welcome to our car rent service!</Title>
 				</TitleDecoration>
 				<Features>
-					<p style={{ textAlign: 'center' }}>
-						You need to rent somenthing faster that a bike or scooter?
-					</p>
-					<p style={{ lineHeight: '1.5', textAlign: 'center' }}>
+					<p>Need to rent something faster than a bike or scooter?</p>
+					<p>
 						In our catalog you will find both budget options for everyday travel
-						<br></br>and exclusive cars that will surprise everyone around you.
+						<br />
+						and exclusive cars that will surprise everyone around you.
 					</p>
 					<Buttons>
-						<a href="tel:+380730000000">Rental car</a>
-						<Link to="/catalog">To catalog</Link>
+						<a href="tel:+380730000000">Call Us</a>
+						<Link to="/catalog">Explore Catalog</Link>
 					</Buttons>
 				</Features>
 			</Container>
 		</Decoration>
 	);
 }
+

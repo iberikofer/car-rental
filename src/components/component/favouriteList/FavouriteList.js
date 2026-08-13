@@ -27,22 +27,24 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
     <Container>
       <CarsList>
         {favouriteList.map(car => (
-          <div
-            key={car.id}
-            style={{ display: 'block', width: 274 }}
-            onClick={() => {
-              setSelectedCar(car);
-            }}
-          >
-            <div>
-              <Car>
+          <li key={car.id} style={{ listStyle: 'none' }}>
+            <Car
+              style={{
+                borderColor: selectedCar?.id === car.id ? '#3470ff' : '',
+                backgroundColor: selectedCar?.id === car.id ? 'rgba(52, 112, 255, 0.2)' : '',
+              }}
+              onClick={() => {
+                setSelectedCar(car);
+              }}
+            >
+              <span>
                 {car.make} {car.model}, {car.year}
-                <BlueColor style={{ paddingLeft: '10px' }}>
-                  {car.rentalPrice}
-                </BlueColor>
-              </Car>
-            </div>
-          </div>
+              </span>
+              <BlueColor style={{ paddingLeft: '10px' }}>
+                {car.rentalPrice}
+              </BlueColor>
+            </Car>
+          </li>
         ))}
       </CarsList>
       <div>
