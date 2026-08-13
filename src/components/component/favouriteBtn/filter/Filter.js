@@ -21,6 +21,8 @@ export function Filter({ carsList, filter, filterChange }) {
   );
 }
 Filter.propTypes = {
-  // filter: PropTypes.string.isRequired,
-  // filterChange: PropTypes.func.isRequired,
+  carsList: PropTypes.array,
+  filter: PropTypes.string,
+  filterChange: PropTypes.func,
 };
+
