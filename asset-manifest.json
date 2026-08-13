@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/car-rent-react-node/static/css/main.e8d48465.css",
-    "main.js": "/car-rent-react-node/static/js/main.70f48591.js",
+    "main.css": "/car-rent-react-node/static/css/main.6deec922.css",
+    "main.js": "/car-rent-react-node/static/js/main.74eea572.js",
     "static/media/error-auto.jpg": "/car-rent-react-node/static/media/error-auto.b145a2bd335629c8b4e3.jpg",
     "index.html": "/car-rent-react-node/index.html",
-    "static/media/FavoriteIcon.svg": "/car-rent-react-node/static/media/FavoriteIcon.f928e865645ab10ebb69e73ea1c3c491.svg",
-    "static/media/heart.svg": "/car-rent-react-node/static/media/heart.623a3b874365d724c658e79a860ad4a4.svg",
+    "static/media/FavoriteIcon.svg": "/car-rent-react-node/static/media/FavoriteIcon.b1c702765684f1eaed457b1bf1aac6d1.svg",
+    "static/media/heart.svg": "/car-rent-react-node/static/media/heart.c782aac83fffa53793828a729891447f.svg",
     "static/media/x.svg": "/car-rent-react-node/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
-    "main.e8d48465.css.map": "/car-rent-react-node/static/css/main.e8d48465.css.map",
-    "main.70f48591.js.map": "/car-rent-react-node/static/js/main.70f48591.js.map"
+    "main.6deec922.css.map": "/car-rent-react-node/static/css/main.6deec922.css.map",
+    "main.74eea572.js.map": "/car-rent-react-node/static/js/main.74eea572.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8d48465.css",
-    "static/js/main.70f48591.js"
+    "static/css/main.6deec922.css",
+    "static/js/main.74eea572.js"
   ]
 }
