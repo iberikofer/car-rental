@@ -58,19 +58,19 @@ export const EmptyContainer = styled.div`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3470ff 0%, #0b44cd 100%);
+    background: linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%);
     color: #ffffff;
     padding: 14px 32px;
     border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 0 4px 16px rgba(52, 112, 255, 0.35);
+    box-shadow: 0 4px 16px rgba(255, 77, 77, 0.35);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      background: linear-gradient(135deg, #4780ff 0%, #1551dc 100%);
+      background: linear-gradient(135deg, #ff6666 0%, #e02424 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(52, 112, 255, 0.5);
+      box-shadow: 0 8px 24px rgba(255, 77, 77, 0.5);
     }
   }
 `;

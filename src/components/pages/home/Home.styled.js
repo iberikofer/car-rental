@@ -37,7 +37,7 @@ export const Decoration = styled.div`
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(52, 112, 255, 0.1) 0%, rgba(52, 112, 255, 0) 70%);
+    background: radial-gradient(circle, rgba(255, 77, 77, 0.1) 0%, rgba(255, 77, 77, 0) 70%);
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
@@ -69,7 +69,7 @@ export const Title = styled.h1`
   font-weight: 800;
   margin: 0 0 16px 0;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, #111827 20%, #3470ff 100%);
+  background: linear-gradient(135deg, #111827 20%, #ff4d4d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -115,14 +115,14 @@ export const Buttons = styled.div`
 
   /* Primary Button (Catalog) */
   a:last-of-type {
-    background: linear-gradient(135deg, #3470ff 0%, #0b44cd 100%);
+    background: linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%);
     color: #ffffff;
-    box-shadow: 0 4px 18px rgba(52, 112, 255, 0.35);
+    box-shadow: 0 4px 18px rgba(255, 77, 77, 0.35);
 
     &:hover {
-      background: linear-gradient(135deg, #4780ff 0%, #1551dc 100%);
+      background: linear-gradient(135deg, #ff6666 0%, #e02424 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(52, 112, 255, 0.5);
+      box-shadow: 0 8px 24px rgba(255, 77, 77, 0.5);
     }
 
     &:active {
@@ -138,11 +138,11 @@ export const Buttons = styled.div`
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 
     &:hover {
-      border-color: #3470ff;
-      color: #3470ff;
+      border-color: #ff4d4d;
+      color: #ff4d4d;
       background-color: #ffffff;
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(52, 112, 255, 0.15);
+      box-shadow: 0 4px 14px rgba(255, 77, 77, 0.15);
     }
 
     &:active {

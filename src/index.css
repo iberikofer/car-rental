@@ -1,8 +1,8 @@
 @import-normalize; /* bring in normalize.css styles */
 
 :root {
-  --primary-color: #3470ff;
-  --primary-hover: #0b44cd;
+  --primary-color: #ff4d4d;
+  --primary-hover: #dc2626;
   --bg-dark: #11141c;
   --bg-dark-card: #181d28;
   --text-main: #121417;
@@ -42,6 +42,6 @@ code {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3470ff;
+  background: #ff4d4d;
 }
 

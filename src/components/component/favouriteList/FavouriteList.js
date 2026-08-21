@@ -30,8 +30,8 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
           <li key={car.id} style={{ listStyle: 'none' }}>
             <Car
               style={{
-                borderColor: selectedCar?.id === car.id ? '#3470ff' : '',
-                backgroundColor: selectedCar?.id === car.id ? 'rgba(52, 112, 255, 0.2)' : '',
+                borderColor: selectedCar?.id === car.id ? '#ff4d4d' : '',
+                backgroundColor: selectedCar?.id === car.id ? 'rgba(255, 77, 77, 0.2)' : '',
               }}
               onClick={() => {
                 setSelectedCar(car);

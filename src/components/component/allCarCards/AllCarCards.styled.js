@@ -29,7 +29,7 @@ export const Card = styled.li`
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 14px 28px rgba(52, 112, 255, 0.14);
+    box-shadow: 0 14px 28px rgba(255, 77, 77, 0.14);
 
     img {
       transform: scale(1.04);

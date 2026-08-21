@@ -32,15 +32,15 @@ export const Navigation = styled.nav`
     position: relative;
 
     &:hover {
-      color: #3470ff;
-      background-color: rgba(52, 112, 255, 0.08);
+      color: #ff4d4d;
+      background-color: rgba(255, 77, 77, 0.08);
       transform: translateY(-1px);
     }
 
     &.active {
       color: #ffffff;
-      background: linear-gradient(135deg, #3470ff 0%, #0b44cd 100%);
-      box-shadow: 0 4px 14px rgba(52, 112, 255, 0.35);
+      background: linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%);
+      box-shadow: 0 4px 14px rgba(255, 77, 77, 0.35);
     }
   }
 `;

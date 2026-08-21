@@ -37,7 +37,7 @@ export const TagItem = styled.span`
 `;
 
 export const CarModel = styled.span`
-  color: #3470ff;
+  color: #ff4d4d;
   font-weight: 600;
   display: inline;
 `;
@@ -70,7 +70,7 @@ export const Prise = styled.span`
 `;
 
 export const LearnMoreBtn = styled.button`
-  background: linear-gradient(135deg, #3470ff 0%, #0b44cd 100%);
+  background: linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%);
   width: calc(100% - 24px);
   border: none;
   display: block;
@@ -82,12 +82,12 @@ export const LearnMoreBtn = styled.button`
   border-radius: 12px;
   margin: 14px 12px 12px 12px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(52, 112, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.25);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: linear-gradient(135deg, #4780ff 0%, #1551dc 100%);
-    box-shadow: 0 6px 18px rgba(52, 112, 255, 0.4);
+    background: linear-gradient(135deg, #ff6666 0%, #e02424 100%);
+    box-shadow: 0 6px 18px rgba(255, 77, 77, 0.4);
     transform: translateY(-2px);
   }
 

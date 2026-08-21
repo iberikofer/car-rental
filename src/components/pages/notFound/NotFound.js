@@ -30,7 +30,7 @@ export default function NotFound() {
 					fontSize: 'clamp(64px, 12vw, 120px)',
 					fontWeight: 900,
 					margin: 0,
-					background: 'linear-gradient(135deg, #3470ff, #0b44cd)',
+					background: 'linear-gradient(135deg, #ff4d4d, #dc2626)',
 					WebkitBackgroundClip: 'text',
 					WebkitTextFillColor: 'transparent',
 				}}
@@ -46,13 +46,13 @@ export default function NotFound() {
 			<Link
 				to="/"
 				style={{
-					background: 'linear-gradient(135deg, #3470ff 0%, #0b44cd 100%)',
+					background: 'linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%)',
 					color: '#ffffff',
 					padding: '12px 28px',
 					borderRadius: '12px',
 					fontWeight: 600,
 					textDecoration: 'none',
-					boxShadow: '0 4px 16px rgba(52, 112, 255, 0.35)',
+					boxShadow: '0 4px 16px rgba(255, 77, 77, 0.35)',
 				}}
 			>
 				Return Home Now

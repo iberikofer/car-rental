@@ -98,7 +98,7 @@ export const DescriptionPart = styled.p`
 `;
 
 export const CarModel = styled.span`
-  color: #3470ff;
+  color: #ff4d4d;
   font-weight: 700;
   display: inline;
 `;
@@ -130,7 +130,7 @@ export const Prise = styled.span`
 `;
 
 export const RentalCarBtn = styled.a`
-  background: linear-gradient(135deg, #3470ff 0%, #0b44cd 100%);
+  background: linear-gradient(135deg, #ff4d4d 0%, #dc2626 100%);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -142,12 +142,12 @@ export const RentalCarBtn = styled.a`
   font-size: 14px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(52, 112, 255, 0.35);
+  box-shadow: 0 4px 14px rgba(255, 77, 77, 0.35);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: linear-gradient(135deg, #4780ff 0%, #1551dc 100%);
-    box-shadow: 0 6px 20px rgba(52, 112, 255, 0.5);
+    background: linear-gradient(135deg, #ff6666 0%, #e02424 100%);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.5);
     transform: translateY(-2px);
   }
 
@@ -157,7 +157,7 @@ export const RentalCarBtn = styled.a`
 `;
 
 export const BlueColor = styled.span`
-  color: #3470ff;
+  color: #ff4d4d;
   font-weight: 700;
 `;
 
