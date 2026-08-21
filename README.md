@@ -3,12 +3,12 @@
 [![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![React Router](https://img.shields.io/badge/React_Router-v6-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
 [![Emotion](https://img.shields.io/badge/Styling-Emotion%20CSS-d26ac2)](https://emotion.sh/)
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=github-pages&logoColor=white)](https://iberikofer.github.io/car-rent-react-node/)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=github-pages&logoColor=white)](https://iberikofer.github.io/react-car-rental/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > A modern, responsive web application for browsing, filtering, and booking rental cars in Ukraine. Built with React 18, Emotion styled-components, and MockAPI.
 
-🔗 **Live Demo:** [https://iberikofer.github.io/car-rent-react-node/](https://iberikofer.github.io/car-rent-react-node/)
+🔗 **Live Demo:** [https://iberikofer.github.io/react-car-rental/](https://iberikofer.github.io/react-car-rental/)
 
 ---
 
@@ -59,8 +59,8 @@ Ensure you have **Node.js** (version 18 or 20 recommended) and **npm** installed
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/iberikofer/car-rent-react-node.git
-   cd car-rent-react-node
+   git clone https://github.com/iberikofer/react-car-rental.git
+   cd react-car-rental
    ```
 
 2. **Install dependencies:**
@@ -72,7 +72,7 @@ Ensure you have **Node.js** (version 18 or 20 recommended) and **npm** installed
    ```bash
    npm start
    ```
-   Open [http://localhost:3000/car-rent-react-node](http://localhost:3000/car-rent-react-node) to view the application in your browser.
+   Open [http://localhost:3000/react-car-rental](http://localhost:3000/react-car-rental) to view the application in your browser.
 
 ---
 
@@ -97,14 +97,14 @@ The project includes an automated GitHub Actions workflow in [`.github/workflows
    - **Source:** *Deploy from a branch*
    - **Branch:** `gh-pages` / `/ (root)`
 3. Save the settings. Your application will be live at:
-   `https://iberikofer.github.io/car-rent-react-node/`
+   `https://iberikofer.github.io/react-car-rental/`
 
 ---
 
 ## 📂 Project Structure
 
 ```
-car-rent-react-node/
+react-car-rental/
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml          # GitHub Actions deployment workflow
