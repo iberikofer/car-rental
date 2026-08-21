@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/car-rent-react-node/static/css/main.6deec922.css",
-    "main.js": "/car-rent-react-node/static/js/main.74eea572.js",
-    "static/media/error-auto.jpg": "/car-rent-react-node/static/media/error-auto.b145a2bd335629c8b4e3.jpg",
-    "index.html": "/car-rent-react-node/index.html",
-    "static/media/FavoriteIcon.svg": "/car-rent-react-node/static/media/FavoriteIcon.b1c702765684f1eaed457b1bf1aac6d1.svg",
-    "static/media/heart.svg": "/car-rent-react-node/static/media/heart.c782aac83fffa53793828a729891447f.svg",
-    "static/media/x.svg": "/car-rent-react-node/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
-    "main.6deec922.css.map": "/car-rent-react-node/static/css/main.6deec922.css.map",
-    "main.74eea572.js.map": "/car-rent-react-node/static/js/main.74eea572.js.map"
+    "main.css": "/react-car-rental/static/css/main.6deec922.css",
+    "main.js": "/react-car-rental/static/js/main.3de9f745.js",
+    "static/media/error-auto.jpg": "/react-car-rental/static/media/error-auto.b145a2bd335629c8b4e3.jpg",
+    "index.html": "/react-car-rental/index.html",
+    "static/media/FavoriteIcon.svg": "/react-car-rental/static/media/FavoriteIcon.b1c702765684f1eaed457b1bf1aac6d1.svg",
+    "static/media/heart.svg": "/react-car-rental/static/media/heart.c782aac83fffa53793828a729891447f.svg",
+    "static/media/x.svg": "/react-car-rental/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
+    "main.6deec922.css.map": "/react-car-rental/static/css/main.6deec922.css.map",
+    "main.3de9f745.js.map": "/react-car-rental/static/js/main.3de9f745.js.map"
   },
   "entrypoints": [
     "static/css/main.6deec922.css",
-    "static/js/main.74eea572.js"
+    "static/js/main.3de9f745.js"
   ]
 }
