@@ -1,11 +1,5 @@
 # 🚗 Car Rental Web Application
 
-[![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![React Router](https://img.shields.io/badge/React_Router-v6-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
-[![Emotion](https://img.shields.io/badge/Styling-Emotion%20CSS-d26ac2)](https://emotion.sh/)
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=github-pages&logoColor=white)](https://iberikofer.github.io/react-car-rental/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
 > A modern, responsive web application for browsing, filtering, and booking rental cars in Ukraine. Built with React 18, Emotion styled-components, and MockAPI.
 
 🔗 **Live Demo:** [https://iberikofer.github.io/react-car-rental/](https://iberikofer.github.io/react-car-rental/)
