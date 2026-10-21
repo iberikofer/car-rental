@@ -14,7 +14,7 @@ const isVercel =
   window.location.hostname === 'localhost' ||
   window.location.hostname === '127.0.0.1';
 
-const basename = isVercel ? '/' : (process.env.PUBLIC_URL || '/');
+const basename = isVercel ? '/' : (import.meta.env.BASE_URL || '/');
 
 ReactDOM.createRoot(rootElement).render(
   <BrowserRouter basename={basename}>
