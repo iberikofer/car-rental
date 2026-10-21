@@ -2,7 +2,7 @@
 
 > A modern, responsive web application for browsing, filtering, and booking rental cars in Ukraine. Built with React 18, Emotion styled-components, and MockAPI.
 
-🔗 **Live Demo:** [https://iberikofer.github.io/react-car-rental/](https://iberikofer.github.io/react-car-rental/)
+🔗 **Live Demo:** [https://iberikofer.github.io/car-rental/](https://iberikofer.github.io/car-rental/)
 
 ---
 
@@ -91,7 +91,7 @@ The project includes an automated GitHub Actions workflow in [`.github/workflows
    - **Source:** *Deploy from a branch*
    - **Branch:** `gh-pages` / `/ (root)`
 3. Save the settings. Your application will be live at:
-   `https://iberikofer.github.io/react-car-rental/`
+   `https://iberikofer.github.io/car-rental/`
 
 ---
 

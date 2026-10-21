@@ -2,7 +2,7 @@
 	"name": "react-car-rental",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://iberikofer.github.io/react-car-rental/",
+	"homepage": "https://iberikofer.github.io/car-rental/",
 	"dependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.11.0",
