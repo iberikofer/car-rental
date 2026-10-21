@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from 'components/App';
@@ -10,7 +10,7 @@ if (!rootElement) {
 }
 
 ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter basename="/react-car-rental">
+  <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
     <App />
   </BrowserRouter>
 );
