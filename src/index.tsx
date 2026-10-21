@@ -9,8 +9,15 @@ if (!rootElement) {
   throw new Error('Failed to find root element');
 }
 
+const isVercel =
+  window.location.hostname.includes('vercel.app') ||
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1';
+
+const basename = isVercel ? '/' : (process.env.PUBLIC_URL || '/');
+
 ReactDOM.createRoot(rootElement).render(
-  <BrowserRouter basename={process.env.PUBLIC_URL || "/"}>
+  <BrowserRouter basename={basename}>
     <App />
   </BrowserRouter>
 );
