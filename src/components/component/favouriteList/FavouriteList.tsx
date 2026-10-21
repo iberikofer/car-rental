@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import type { FC, SyntheticEvent } from 'react';
+import type { Car } from '../../../types/car';
 import {
   CardImg,
   Container,
   CarsList,
   Card,
-  Car,
+  Car as CarItem,
   BlueColor,
   CardDecoration,
   ConditionsList,
@@ -16,19 +18,30 @@ import {
 } from './FavouriteList.styled';
 import auto from '../../public/error-auto.jpg';
 
-export function FavouriteList({ favouriteList, setFavouriteList }) {
-  const [selectedCar, setSelectedCar] = useState(null);
-  let addressArray = selectedCar ? selectedCar.address.split(', ') : [];
+interface FavouriteListProps {
+  favouriteList: Car[];
+  setFavouriteList: (cars: Car[]) => void;
+}
 
-  const conditionsArray = selectedCar
+export const FavouriteList: FC<FavouriteListProps> = ({ favouriteList }) => {
+  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
+
+  const addressArray = selectedCar?.address ? selectedCar.address.split(', ') : [];
+  const conditionsArray = selectedCar?.rentalConditions
     ? selectedCar.rentalConditions.split('\n')
     : [];
+
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = auto;
+    e.preventDefault();
+  };
+
   return (
     <Container>
       <CarsList>
         {favouriteList.map(car => (
           <li key={car.id} style={{ listStyle: 'none' }}>
-            <Car
+            <CarItem
               style={{
                 borderColor: selectedCar?.id === car.id ? '#ff4d4d' : '',
                 backgroundColor: selectedCar?.id === car.id ? 'rgba(255, 77, 77, 0.2)' : '',
@@ -43,7 +56,7 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
               <BlueColor style={{ paddingLeft: '10px' }}>
                 {car.rentalPrice}
               </BlueColor>
-            </Car>
+            </CarItem>
           </li>
         ))}
       </CarsList>
@@ -53,12 +66,10 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
             <div>
               <CardDecoration style={{ display: 'block' }}>
                 <CardImg
-                  src={selectedCar.img}
-                  onError={e => {
-                    e.target.src = auto;
-                    e.preventDefault();
-                  }}
-                ></CardImg>
+                  src={selectedCar.img || auto}
+                  alt={`${selectedCar.make} ${selectedCar.model}`}
+                  onError={handleImgError}
+                />
                 <Decoration>
                   <p>
                     {selectedCar.make} <CarModel>{selectedCar.model}</CarModel>,{' '}
@@ -66,67 +77,63 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
                   </p>
                 </Decoration>
                 <DescriptionPart>
-                  {addressArray[1]} | {addressArray[2]} | Id: {selectedCar.id} |{' '}
+                  {addressArray[1] || ''} | {addressArray[2] || ''} | Id: {selectedCar.id} |{' '}
                   Year: {selectedCar.year} | Type: {selectedCar.type} | Fuel
                   Consumption {selectedCar.fuelConsumption} | Engine Size:{' '}
                   {selectedCar.engineSize}
                 </DescriptionPart>
-                <p
-                  style={{
-                    paddingTop: '14px',
-                  }}
-                >
+                <p style={{ paddingTop: '14px' }}>
                   {selectedCar.description}
                 </p>
-                <p
-                  style={{
-                    paddingTop: '24px',
-                  }}
-                >
+                <p style={{ paddingTop: '24px' }}>
                   Accessories and functionalities:
                 </p>
                 <DescriptionPart>
                   |{' '}
-                  {selectedCar.accessories.map(accessor => (
+                  {(selectedCar.accessories || []).map(accessor => (
                     <span key={accessor}>{accessor} | </span>
                   ))}
-                  <br></br>|{' '}
-                  {selectedCar.functionalities.map(accessor => (
+                  <br />|{' '}
+                  {(selectedCar.functionalities || []).map(accessor => (
                     <span key={accessor}>{accessor} | </span>
                   ))}
                 </DescriptionPart>
-                <p
-                  style={{
-                    paddingTop: '24px',
-                  }}
-                >
+                <p style={{ paddingTop: '24px' }}>
                   Rental Conditions:
                 </p>
                 <ConditionsList>
-                  <Condition>
-                    {conditionsArray[0].slice(0, conditionsArray[0].length - 2)}
-                    <BlueColor>
-                      {' '}
-                      {conditionsArray[0].slice(
-                        conditionsArray[0].length - 2,
-                        conditionsArray[0].length
-                      )}
-                    </BlueColor>
-                  </Condition>
+                  {conditionsArray[0] && (
+                    <Condition>
+                      {conditionsArray[0].slice(0, conditionsArray[0].length - 2)}
+                      <BlueColor>
+                        {' '}
+                        {conditionsArray[0].slice(
+                          conditionsArray[0].length - 2,
+                          conditionsArray[0].length
+                        )}
+                      </BlueColor>
+                    </Condition>
+                  )}
                   {conditionsArray.slice(1).map(condition => (
                     <Condition key={condition}>{condition}</Condition>
                   ))}
 
-                  <Condition>
-                    Mileage:
-                    <BlueColor>
-                      {' '}
-                      {selectedCar.mileage.toLocaleString('en-US')}
-                    </BlueColor>
-                  </Condition>
-                  <Condition>
-                    <BlueColor>{selectedCar.rentalPrice}</BlueColor>
-                  </Condition>
+                  {selectedCar.mileage !== undefined && (
+                    <Condition>
+                      Mileage:
+                      <BlueColor>
+                        {' '}
+                        {typeof selectedCar.mileage === 'number'
+                          ? selectedCar.mileage.toLocaleString('en-US')
+                          : selectedCar.mileage}
+                      </BlueColor>
+                    </Condition>
+                  )}
+                  {selectedCar.rentalPrice && (
+                    <Condition>
+                      <BlueColor>{selectedCar.rentalPrice}</BlueColor>
+                    </Condition>
+                  )}
                 </ConditionsList>
 
                 <RentalCarBtn href="tel:+380730000000">Rental car</RentalCarBtn>
@@ -137,4 +144,6 @@ export function FavouriteList({ favouriteList, setFavouriteList }) {
       </div>
     </Container>
   );
-}
+};
+
+export default FavouriteList;

@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
+import type { FC, SyntheticEvent } from 'react';
+import type { Car } from '../../../types/car';
 import {
   CardImg,
   Card,
@@ -18,8 +19,14 @@ import {
 import closeBtn from '../../public/x.svg';
 import auto from '../../public/error-auto.jpg';
 
-export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
-  const handleClose = React.useCallback(() => {
+interface ModalCardProps {
+  selectedCar: Car | null;
+  setIsModalOpen: (isOpen: boolean) => void;
+  onClose?: () => void;
+}
+
+export const ModalCard: FC<ModalCardProps> = ({ selectedCar, setIsModalOpen, onClose }) => {
+  const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
     } else {
@@ -28,7 +35,7 @@ export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
   }, [onClose, setIsModalOpen]);
 
   useEffect(() => {
-    const handleKeyDown = e => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         handleClose();
       }
@@ -43,7 +50,6 @@ export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
     };
   }, [handleClose]);
 
-
   if (!selectedCar) return null;
 
   const addressArray = selectedCar.address ? selectedCar.address.split(', ') : [];
@@ -52,6 +58,11 @@ export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
   const hasMinAge = firstCondition.toLowerCase().includes('age') && firstCondition.length > 2;
 
   const modalRoot = document.querySelector('#modal-card') || document.body;
+
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = auto;
+    e.preventDefault();
+  };
 
   return ReactDOM.createPortal(
     <>
@@ -62,10 +73,7 @@ export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
             <CardImg
               src={selectedCar.img || auto}
               alt={`${selectedCar.make} ${selectedCar.model}`}
-              onError={e => {
-                e.target.src = auto;
-                e.preventDefault();
-              }}
+              onError={handleImgError}
             />
             <Decoration>
               <p>
@@ -143,11 +151,6 @@ export function ModalCard({ selectedCar, setIsModalOpen, onClose }) {
     </>,
     modalRoot
   );
-}
-
-ModalCard.propTypes = {
-  selectedCar: PropTypes.object,
-  setIsModalOpen: PropTypes.func.isRequired,
-  onClose: PropTypes.func,
 };
 
+export default ModalCard;

@@ -1,22 +1,34 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+import type { FC, SyntheticEvent } from 'react';
+import type { Car } from '../../../types/car';
 import Description from '../description/Description';
 import { CardImg, Card, CarsList, Decoration } from './AllCarCards.styled';
 import { FavouriteBtn } from 'components/component/favouriteBtn/FavouriteBtn';
 import { ModalCard } from '../modalCard/ModalCard';
 import auto from '../../public/error-auto.jpg';
 
-export default function AllCarCard({
+interface AllCarCardsProps {
+  carsList: Car[];
+  favouriteList?: Car[];
+  addFavouriteList: (cars: Car[]) => void;
+}
+
+export const AllCarCards: FC<AllCarCardsProps> = ({
   carsList,
-  favouriteList,
+  favouriteList = [],
   addFavouriteList,
-}) {
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCar, setSelectedCar] = useState(null);
+  const [selectedCar, setSelectedCar] = useState<Car | null>(null);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedCar(null);
+  };
+
+  const handleImgError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = auto;
+    e.preventDefault();
   };
 
   return (
@@ -28,10 +40,7 @@ export default function AllCarCard({
               <CardImg
                 src={car.img || auto}
                 alt={`${car.make} ${car.model}`}
-                onError={e => {
-                  e.target.src = auto;
-                  e.preventDefault();
-                }}
+                onError={handleImgError}
               />
               <Description
                 car={car}
@@ -56,11 +65,6 @@ export default function AllCarCard({
       )}
     </CarsList>
   );
-}
-
-AllCarCard.propTypes = {
-  carsList: PropTypes.array.isRequired,
-  favouriteList: PropTypes.array,
-  addFavouriteList: PropTypes.func.isRequired,
 };
 
+export default AllCarCards;

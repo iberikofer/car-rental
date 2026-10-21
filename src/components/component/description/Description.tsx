@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types';
+import type { FC } from 'react';
+import type { Car } from '../../../types/car';
 import {
   Prise,
   Descriptions,
@@ -9,11 +10,17 @@ import {
   TagItem,
 } from './Description.styled';
 
-export default function Description({
+interface DescriptionProps {
+  car: Car;
+  setIsModalOpen: (isOpen: boolean) => void;
+  setSelectedCar: (car: Car | null) => void;
+}
+
+export const Description: FC<DescriptionProps> = ({
   car,
   setIsModalOpen,
   setSelectedCar,
-}) {
+}) => {
   const addressArray = car?.address ? car.address.split(', ') : [];
   const city = addressArray[1] || '';
   const country = addressArray[2] || '';
@@ -40,7 +47,7 @@ export default function Description({
           </p>
           <Prise>{car?.rentalPrice}</Prise>
         </Decoration>
-        
+
         <TagList>
           {line1Items.map((item, index) => (
             <TagItem key={index}>{item}</TagItem>
@@ -56,11 +63,6 @@ export default function Description({
       <LearnMoreBtn onClick={openModal}>Learn more</LearnMoreBtn>
     </>
   );
-}
-
-Description.propTypes = {
-  car: PropTypes.object.isRequired,
-  setIsModalOpen: PropTypes.func.isRequired,
-  setSelectedCar: PropTypes.func.isRequired,
 };
 
+export default Description;
